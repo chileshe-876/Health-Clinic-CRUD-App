@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Campus Health Clinic</title>
+    <!-- Add Font Awesome for social media icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      /* Dark Theme CSS */
+      :root {
+        --primary-color: #2a9d8f;
+        --secondary-color: #e76f51;
+        --dark-bg: #1a1a2e;
+        --darker-bg: #16213e;
+        --card-bg: #0f3460;
+        --text-color: #e2e2e2;
+        --border-color: #2a9d8f;
+      }
+
+      body {
+        background-color: var(--dark-bg);
+        color: var(--text-color);
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+        padding: 20px;
+        line-height: 1.6;
+      }
+
+      h1,
+      h2,
+      h3 {
+        color: var(--primary-color);
+      }
+
+      a {
+        color: var(--secondary-color);
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      hr {
+        border: 0;
+        height: 1px;
+        background: linear-gradient(
+          to right,
+          transparent,
+          var(--primary-color),
+          transparent
+        );
+        margin: 30px 0;
+      }
+
+      /* Student Details Section */
+      #student-details {
+        background-image: url("images/CodeWave\ Genius.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-color: rgba(0, 0, 0, 0.25);
+        background-blend-mode: multiply;
+        padding: 30px;
+        border-radius: 10px;
+      }
+      #student-details td {
+        color: green; /* change this to any color you like */
+        font-weight: bold;
+        font-size: 17px;
+        text-shadow: 1px 1px 2px black;
+      }
+
+      #student-details table {
+        width: 100%;
+      }
+      /* Header Section */
+      #header-container {
+        background-color: var(--card-bg);
+        padding: 20px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        text-align: center;
+      }
+
+      #header-container h1 {
+        margin-top: 0;
+      }
+
+      marquee {
+        color: var(--secondary-color);
+        font-weight: bold;
+        padding: 10px 0;
+      }
+
+      /* Services Section */
+      #services-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        margin-bottom: 30px;
+      }
+
+      #services-list {
+        flex: 1;
+        min-width: 300px;
+        background-color: var(--darker-bg);
+        padding: 20px;
+        border-radius: 8px;
+      }
+
+      #services-video {
+        flex: 1;
+        min-width: 300px;
+        background-color: var(--darker-bg);
+        padding: 20px;
+        border-radius: 8px;
+      }
+
+      video {
+        width: 100%;
+        border-radius: 8px;
+        border: 2px solid var(--primary-color);
+      }
+
+      /* Preparation Section */
+      #preparation {
+        background-color: var(--darker-bg);
+        padding: 20px;
+        border-radius: 8px;
+        margin-bottom: 30px;
+      }
+
+      /* Fees Table */
+      #fees-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 30px;
+      }
+
+      #fees-table th {
+        background-color: var(--primary-color);
+        color: white;
+        padding: 12px;
+        text-align: left;
+      }
+
+      #fees-table td {
+        padding: 12px;
+        border-bottom: 1px solid var(--border-color);
+      }
+
+      #fees-table tr:nth-child(even) {
+        background-color: var(--darker-bg);
+      }
+
+      #fees-table tr:nth-child(odd) {
+        background-color: var(--card-bg);
+      }
+
+      #fees-table tr:hover {
+        background-color: rgba(42, 157, 143, 0.2);
+      }
+
+      /* Appointment Form */
+      #appointment-form {
+        background-color: var(--darker-bg);
+        padding: 20px;
+        border-radius: 8px;
+        margin-bottom: 30px;
+      }
+
+      .form-group {
+        margin-bottom: 15px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+      }
+
+      input,
+      select,
+      textarea {
+        width: 100%;
+        padding: 10px;
+        border-radius: 4px;
+        border: 1px solid var(--border-color);
+        background-color: var(--dark-bg);
+        color: var(--text-color);
+        box-sizing: border-box;
+      }
+
+      button {
+        background-color: var(--primary-color);
+        color: white;
+        border: none;
+        padding: 12px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s;
+      }
+
+      button:hover {
+        background-color: #21867a;
+      }
+
+      /* Find Us Section */
+      #findus {
+        background-color: var(--darker-bg);
+        padding: 20px;
+        border-radius: 8px;
+        margin-bottom: 30px;
+      }
+
+      #map-container {
+        margin-top: 20px;
+        text-align: center;
+      }
+
+      #clinic-map {
+        width: 100%;
+        max-width: 600px;
+        height: 300px;
+        border: 3px solid var(--primary-color);
+        border-radius: 8px;
+      }
+
+      /* Hours Block */
+      #hours-block {
+        background-color: var(--card-bg);
+        padding: 15px;
+        border-radius: 8px;
+        margin: 20px 0;
+        border-left: 5px solid var(--secondary-color);
+      }
+
+      /* Audio Section */
+      #wellness-tip {
+        background-color: var(--darker-bg);
+        padding: 20px;
+        border-radius: 8px;
+        margin-bottom: 30px;
+        text-align: center;
+      }
+
+      audio {
+        width: 100%;
+        max-width: 500px;
+        margin-top: 10px;
+      }
+
+      /* Social Media Section */
+      .socials {
+        text-align: center;
+        margin: 20px 0;
+        padding: 15px;
+      }
+
+      .socials a {
+        display: inline-block;
+        margin: 0 10px;
+        font-size: 24px;
+        color: var(--text-color);
+        transition: color 0.3s, transform 0.3s;
+      }
+
+      .socials a:hover {
+        color: var(--primary-color);
+        transform: scale(1.2);
+        text-decoration: none;
+      }
+
+      /* Footer */
+      footer {
+        text-align: center;
+        margin-top: 40px;
+        padding-top: 20px;
+        border-top: 1px solid var(--border-color);
+      }
+
+      .footer-links {
+        margin-bottom: 15px;
+      }
+      /* CRUD Section Styles */
+.crud-section {
+    background-color: var(--darker-bg);
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    border: 1px solid var(--primary-color);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid var(--border-color);
+    background-color: var(--dark-bg);
+    color: var(--text-color);
+    box-sizing: border-box;
+}
+
+.form-actions {
+    margin-top: 20px;
+}
+
+button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+    margin-right: 10px;
+}
+
+button:hover {
+    background-color: #21867a;
+}
+
+button.delete {
+    background-color: #e74c3c;
+}
+
+button.delete:hover {
+    background-color: #c0392b;
+}
+
+button.secondary {
+    background-color: #95a5a6;
+}
+
+button.secondary:hover {
+    background-color: #7f8c8d;
+}
+
+#clinics-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+#clinics-table th, #clinics-table td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+#clinics-table th {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+#clinics-table tr:nth-child(even) {
+    background-color: var(--darker-bg);
+}
+
+#clinics-table tr:nth-child(odd) {
+    background-color: var(--card-bg);
+}
+
+#clinics-table tr:hover {
+    background-color: rgba(42, 157, 143, 0.2);
+}
+
+.actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.message {
+    padding: 1rem;
+    margin: 1rem 0;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.success {
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.error {
+    background: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+    </style>
+  </head>
+  <body>
+    <div id="student-details">
+      <table width="100%" border="0" cellpadding="5" cellspacing="0">
+        <tr>
+          <td align="left">
+            <strong>NAMES:</strong><br />
+            1.CHOOLWE ZILOMBO SOKO<br />
+            2.MARVELOUS BWALYA<br />
+            3.FLORENCE SHIMPA MUSONDA<br />
+            4.BENZU HIMOONDE<br />
+            5.DAILESS GUMBO<br />
+            6.SIBONGILE MOYO<br />
+            7.EMMANUEAL MIYAMBO<br />
+            8.ELIZABETH CHIPULU<br />
+            9.SIMBEYE WILLIAM LUPUPA<br />
+            10.FEBBY NG'ANDWE<br />
+            11.MATHEWS MBEWE<br />
+            12.PETER LOMBE BWALYA<br />
+            13.BENADETTE CHANDA<br />
+          </td>
+
+          <td align="top-center">
+            <strong align="center">STUDENT NUMBER:</strong><br />
+            202408157<br />
+            202406501<br />
+            202406031<br />
+            202403132<br />
+            202406011<br />
+            202409794<br />
+            202402295<br />
+            202409052<br />
+            202403271<br />
+            202403184<br />
+            202408295<br />
+            202407871<br />
+            202400653<br />
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <hr />
+
+    <!-- Add this RIGHT AFTER your student details section -->
+<hr />
+
+<!-- CRUD Management Section -->
+<div class="crud-section">
+    <h2>Clinic Management System</h2>
+    <div id="message"></div>
+    
+    <form id="clinicForm">
+        <div class="form-row">
+            <div class="form-group">
+                <label for="clinic_name">Clinic Name *</label>
+                <input type="text" id="clinic_name" name="clinic_name" required>
+            </div>
+            <div class="form-group">
+                <label for="doctor_name">Doctor Name</label>
+                <input type="text" id="doctor_name" name="doctor_name">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group">
+                <label for="specialization">Specialization</label>
+                <input type="text" id="specialization" name="specialization">
+            </div>
+            <div class="form-group">
+                <label for="contact_number">Contact Number</label>
+                <input type="text" id="contact_number" name="contact_number">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="location">Location</label>
+            <input type="text" id="location" name="location">
+        </div>
+        <div class="form-group">
+            <label for="hours_of_operation">Hours of Operation</label>
+            <input type="text" id="hours_of_operation" name="hours_of_operation" placeholder="e.g., Mon-Fri: 8AM-6PM">
+        </div>
+        <div class="form-actions">
+            <button type="submit" id="submit-btn">Add Clinic</button>
+            <button type="button" id="cancel-btn" class="secondary" style="display: none;">Cancel</button>
+        </div>
+    </form>
+</div>
+
+<div class="crud-section">
+    <h2>Clinics List</h2>
+    <div id="loading">Loading clinics...</div>
+    <table id="clinics-table" style="display: none;">
+        <thead>
+            <tr>
+                <th>Clinic Name</th>
+                <th>Doctor</th>
+                <th>Specialization</th>
+                <th>Location</th>
+                <th>Contact</th>
+                <th>Hours</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="clinics-tbody"></tbody>
+    </table>
+</div>
+
+<hr />
+<!-- Your existing clinic content continues below -->
+
+    <div id="header-container">
+      <h1>Campus Health Clinic</h1>
+      <div id="hours-block">
+        <h3>Clinic Hours</h3>
+        <p>Monday - Friday: 8:00 AM – 5:00 PM</p>
+        <p>Saturday: 9:00 AM – 1:00 PM</p>
+        <p>Sunday: Closed</p>
+      </div>
+      <marquee>
+        Open Mon–Fri: 8:00 AM – 5:00 PM | Emergency Contact: 911
+      </marquee>
+    </div>
+
+    <hr />
+
+    <div id="services-container">
+      <div id="services-list">
+        <h2>Our Services</h2>
+        <ul>
+          <li>General check-ups and routine medical care</li>
+          <li>Vaccinations and flu shots</li>
+          <li>Counselling and mental health support</li>
+          <li>First aid and minor injury treatment</li>
+          <li>Sexual health services</li>
+          <li>Laboratory testing</li>
+          <li>Health education and wellness programs</li>
+          <li>Chronic disease management</li>
+        </ul>
+      </div>
+
+      <div id="services-video">
+        <h2>Service Overview Video</h2>
+        <video
+          controls
+          poster="https://via.placeholder.com/600x338/0f3460/ffffff?text=Video+Thumbnail"
+        >
+          <source src="videos/Health Clinic Video.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        <p>
+          This video explains our mental health counseling services and how to
+          book an appointment.
+        </p>
+      </div>
+    </div>
+
+    <hr />
+
+    <div id="wellness-tip">
+      <h2>Wellness Tip of the Week</h2>
+      <p>Listen to this week's mental health wellness tip:</p>
+      <audio controls>
+        <source src="audios/Mental Awareness.mp3" type="audio/mpeg" />
+        Your browser does not support the audio element.
+      </audio>
+      <p>
+        <em
+          >Tip: Practice mindfulness for 10 minutes daily to reduce stress and
+          improve focus.</em
+        >
+      </p>
+    </div>
+
+    <hr />
+
+    <div id="preparation">
+      <h2>Visit Preparation</h2>
+      <ol>
+        <li>Book an appointment online or by phone beforehand.</li>
+        <li>Bring your valid student ID card.</li>
+        <li>Have your insurance card or payment method ready.</li>
+        <li>Arrive 10 minutes before your scheduled time to fill out forms.</li>
+        <li>List all medications you are currently taking.</li>
+      </ol>
+    </div>
+
+    <hr />
+
+    <h2>Fees Overview</h2>
+    <table id="fees-table">
+      <thead>
+        <tr>
+          <th>Service</th>
+          <th>Fee</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>General Consultation</td>
+          <td>K20</td>
+          <td>Fee applies to all registered students.</td>
+        </tr>
+        <tr>
+          <td>Flu Vaccination</td>
+          <td>K10</td>
+          <td>Seasonal offer, subject to availability.</td>
+        </tr>
+        <tr>
+          <td>Prescription Refill (non-controlled)</td>
+          <td>K5</td>
+          <td>Does not include cost of medication.</td>
+        </tr>
+        <tr>
+          <td>Basic Counselling Session</td>
+          <td>K30</td>
+          <td>Initial 3 sessions are free for all students.</td>
+        </tr>
+        <tr>
+          <td>Specialist Referral</td>
+          <td>K0</td>
+          <td>Fee is for the referral service only.</td>
+        </tr>
+        <tr>
+          <td>Laboratory Test (Basic)</td>
+          <td>K15</td>
+          <td>Additional charges may apply for specialized tests.</td>
+        </tr>
+        <tr>
+          <td>Emergency Treatment</td>
+          <td>K50</td>
+          <td>After-hours emergency service fee.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <hr />
+
+    <div id="appointment-form">
+      <h2>Book an Appointment</h2>
+      <form id="appointmentForm">
+        <div class="form-group">
+          <label for="name">Full Name:</label>
+          <input type="text" id="name" name="name" required />
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address:</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Telephone:</label>
+          <input type="tel" id="phone" name="phone" required />
+        </div>
+
+        <div class="form-group">
+          <label for="date">Preferred Date:</label>
+          <input type="date" id="date" name="date" required />
+        </div>
+
+        <div class="form-group">
+          <label for="time">Preferred Time:</label>
+          <input type="time" id="time" name="time" required />
+        </div>
+
+        <div class="form-group">
+          <label for="service">Service Required:</label>
+          <select id="service" name="service" required>
+            <option value="">Select a service</option>
+            <option value="general">General Consultation</option>
+            <option value="vaccination">Vaccination/Flu Shot</option>
+            <option value="counselling">Counselling Session</option>
+            <option value="first-aid">First Aid/Minor Injury</option>
+            <option value="sexual-health">Sexual Health Services</option>
+            <option value="lab-test">Laboratory Testing</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Additional Information:</label>
+          <textarea id="message" name="message" rows="4"></textarea>
+        </div>
+
+        <button type="submit">Book Appointment</button>
+      </form>
+    </div>
+
+    <hr />
+
+    <div id="findus">
+      <h2>Find Us</h2>
+      <p>We are located on the main road, Upschool.</p>
+
+      <div id="map-container">
+        <iframe
+          id="Clinic-map.jpg"
+          src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1731.7811410110162!2d28.55889364401752!3d-14.293872839435778!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2szm!4v1759974806153!5m2!1sen!2szm"
+          width="600"
+          height="300"
+          style="border: 0"
+          allowfullscreen=""
+          loading="lazy"
+        ></iframe>
+      </div>
+
+      <div id="geolocation">
+        <h3>Your Current Location</h3>
+        <p id="location-status">Checking your location...</p>
+        <button id="get-location">Check Distance to Clinic</button>
+        <p id="distance-result"></p>
+      </div>
+    </div>
+    <hr />
+
+    <!-- Social Media Section -->
+    <div class="socials">
+      <h3>Connect With Us</h3>
+      <a href="https://github.com/yourusername" title="GitHub"
+        ><i class="fab fa-github"></i
+      ></a>
+      <a
+        href="https://www.instagram.com/codewavegenius?igsh=MnN3YWN4NTJ0Zmpt"
+        title="Instagram"
+        ><i class="fab fa-instagram"></i
+      ></a>
+      <a href="https://www.facebook.com/share/19o6ZhNJsq/" title="Facebook"
+        ><i class="fab fa-facebook"></i
+      ></a>
+      <a href="https://www.tiktok.com/@codewavegenius?lang=en-GB" title="TikTok"
+        ><i class="fab fa-tiktok"></i
+      ></a>
+      <a
+        href="https://www.youtube.com/channel/UCPVh7N_qkF2Oa0YAp2mTQIA"
+        title="YouTube"
+        ><i class="fab fa-youtube"></i
+      ></a>
+      <a
+        href="https://chat.whatsapp.com/CGMQEtnBhQV7RMWS0tA6On"
+        title="WhatsApp"
+        ><i class="fab fa-whatsapp"></i
+      ></a>
+      <a href="https://t.me/+cf_xdAeN81pkZDA0" title="Telegram"
+        ><i class="fab fa-telegram"></i
+      ></a>
+    </div>
+
+    <hr />
+
+    <footer>
+      <div class="footer-links">
+        <a href="https://maps.app.goo.gl/yKphS6V2yMG9tct8A"
+          >Find Us on the Map</a
+        >
+        |
+        <a href="https://www.who.int/" target="_blank"
+          >External Health Resource (World Health Organization)</
+        >
+      </div>
+      <p>&copy; CodeWave Genius</p>
+      <p>&copy; 2025 Health Clinic Info Page</p>
+    </footer>
+
+        <script>
+        // Clinic Management System
+        class ClinicManager {
+            constructor() {
+                this.API_BASE = '/api/clinic';
+                this.currentEditId = null;
+                this.init();
+            }
+
+            init() {
+                this.bindEvents();
+                this.loadClinics();
+            }
+
+            bindEvents() {
+                document.getElementById('clinicForm').addEventListener('submit', (e) => this.handleSubmit(e));
+                document.getElementById('cancel-btn').addEventListener('click', () => this.cancelEdit());
+            }
+
+            async loadClinics() {
+                try {
+                    const response = await fetch(this.API_BASE);
+                    const clinics = await response.json();
+                    this.displayClinics(clinics);
+                } catch (error) {
+                    this.showMessage('Error loading clinics: ' + error.message, 'error');
+                }
+            }
+
+            displayClinics(clinics) {
+                const tbody = document.getElementById('clinics-tbody');
+                const table = document.getElementById('clinics-table');
+                const loading = document.getElementById('loading');
+
+                if (clinics.length === 0) {
+                    tbody.innerHTML = '<tr><td colspan="7" style="text-align: center;">No clinics found</td></tr>';
+                } else {
+                    tbody.innerHTML = clinics.map(clinic => `
+                        <tr>
+                            <td>${this.escapeHtml(clinic.clinic_name)}</td>
+                            <td>${this.escapeHtml(clinic.doctor_name || '-')}</td>
+                            <td>${this.escapeHtml(clinic.specialization || '-')}</td>
+                            <td>${this.escapeHtml(clinic.location || '-')}</td>
+                            <td>${this.escapeHtml(clinic.contact_number || '-')}</td>
+                            <td>${this.escapeHtml(clinic.hours_of_operation || '-')}</td>
+                            <td class="actions">
+                                <button onclick="clinicManager.editClinic(${clinic.id})">Edit</button>
+                                <button class="delete" onclick="clinicManager.deleteClinic(${clinic.id})">Delete</button>
+                            </td>
+                        </tr>
+                    `).join('');
+                }
+
+                loading.style.display = 'none';
+                table.style.display = 'table';
+            }
+
+            async handleSubmit(e) {
+                e.preventDefault();
+                const formData = new FormData(e.target);
+                const data = Object.fromEntries(formData);
+
+                try {
+                    if (this.currentEditId) {
+                        await this.updateClinic(this.currentEditId, data);
+                    } else {
+                        await this.createClinic(data);
+                    }
+                } catch (error) {
+                    this.showMessage('Error: ' + error.message, 'error');
+                }
+            }
+
+            async createClinic(data) {
+                const response = await fetch(this.API_BASE, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                if (!response.ok) {
+                    const error = await response.json();
+                    throw new Error(error.error || 'Failed to create clinic');
+                }
+
+                this.showMessage('Clinic created successfully!', 'success');
+                this.resetForm();
+                this.loadClinics();
+            }
+
+            async updateClinic(id, data) {
+                const response = await fetch(`${this.API_BASE}/${id}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                if (!response.ok) {
+                    const error = await response.json();
+                    throw new Error(error.error || 'Failed to update clinic');
+                }
+
+                this.showMessage('Clinic updated successfully!', 'success');
+                this.cancelEdit();
+                this.loadClinics();
+            }
+
+            editClinic(id) {
+                fetch(`${this.API_BASE}/${id}`)
+                    .then(response => response.json())
+                    .then(clinic => {
+                        document.getElementById('clinic_name').value = clinic.clinic_name || '';
+                        document.getElementById('doctor_name').value = clinic.doctor_name || '';
+                        document.getElementById('specialization').value = clinic.specialization || '';
+                        document.getElementById('location').value = clinic.location || '';
+                        document.getElementById('contact_number').value = clinic.contact_number || '';
+                        document.getElementById('hours_of_operation').value = clinic.hours_of_operation || '';
+
+                        document.getElementById('submit-btn').textContent = 'Update Clinic';
+                        document.getElementById('cancel-btn').style.display = 'inline-block';
+
+                        this.currentEditId = id;
+                    })
+                    .catch(error => {
+                        this.showMessage('Error loading clinic: ' + error.message, 'error');
+                    });
+            }
+
+            async deleteClinic(id) {
+                if (!confirm('Are you sure you want to delete this clinic?')) {
+                    return;
+                }
+
+                try {
+                    const response = await fetch(`${this.API_BASE}/${id}`, {
+                        method: 'DELETE'
+                    });
+
+                    if (!response.ok) {
+                        const error = await response.json();
+                        throw new Error(error.error || 'Failed to delete clinic');
+                    }
+
+                    this.showMessage('Clinic deleted successfully!', 'success');
+                    this.loadClinics();
+                } catch (error) {
+                    this.showMessage('Error: ' + error.message, 'error');
+                }
+            }
+
+            cancelEdit() {
+                this.currentEditId = null;
+                this.resetForm();
+                document.getElementById('submit-btn').textContent = 'Add Clinic';
+                document.getElementById('cancel-btn').style.display = 'none';
+            }
+
+            resetForm() {
+                document.getElementById('clinicForm').reset();
+            }
+
+            showMessage(message, type) {
+                const messageDiv = document.getElementById('message');
+                messageDiv.innerHTML = `<div class="message ${type}">${message}</div>`;
+                setTimeout(() => {
+                    messageDiv.innerHTML = '';
+                }, 5000);
+            }
+
+            escapeHtml(unsafe) {
+                return unsafe
+                    .toString()
+                    .replace(/&/g, "&amp;")
+                    .replace(/</g, "&lt;")
+                    .replace(/>/g, "&gt;")
+                    .replace(/"/g, "&quot;")
+                    .replace(/'/g, "&#039;");
+            }
+        }
+
+        // Initialize the clinic manager
+        const clinicManager = new ClinicManager();
+
+        // KEEP YOUR EXISTING CODE BELOW - DON'T DELETE THIS
+        // Form submission handler
+        document.getElementById('appointmentForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Appointment request submitted! We will contact you shortly to confirm.');
+            this.reset();
+        });
+
+        // Geolocation functionality
+        document.getElementById('get-location').addEventListener('click', function() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition, showError);
+            } else {
+                document.getElementById('location-status').textContent = "Geolocation is not supported by this browser.";
+            }
+        });
+
+        function showPosition(position) {
+            const latitude = position.coords.latitude;
+            const longitude = position.coords.longitude;
+
+            document.getElementById('location-status').textContent =
+                `Your location: Latitude ${latitude.toFixed(6)}, Longitude ${longitude.toFixed(6)}`;
+
+            // An approximate distance of your exact location to the clinic
+            document.getElementById('distance-result').textContent =
+                "You are approximately 1.2 km from the clinic.";
+        }
+
+        function showError(error) {
+            switch(error.code) {
+                case error.PERMISSION_DENIED:
+                    document.getElementById('location-status').textContent = "User denied the request for Geolocation.";
+                    break;
+                case error.POSITION_UNAVAILABLE:
+                    document.getElementById('location-status').textContent = "Location information is unavailable.";
+                    break;
+                case error.TIMEOUT:
+                    document.getElementById('location-status').textContent = "The request to get user location timed out.";
+                    break;
+                case error.UNKNOWN_ERROR:
+                    document.getElementById('location-status').textContent = "An unknown error occurred.";
+                    break;
+            }
+        }
+    </script>
+  </body>
+</html>
